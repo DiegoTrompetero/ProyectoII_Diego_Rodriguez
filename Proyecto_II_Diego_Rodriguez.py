@@ -110,8 +110,8 @@ class Infectado (Posible_infectado):
             }
 
 
-
-print("Bienvenido al prorgama de investigacion del coronaviruz")
+print("="*150)
+print("Bienvenido al prorgama de investigacion del coronavirus:")
 Sesion = 0
 while Sesion == 0:
     eleccion = pedirNumeroEnteroValidado('''
@@ -129,6 +129,7 @@ while Sesion == 0:
     3) Salir
     ''')
     if eleccion == 1:
+        print("="*150)
         #Modulo #1
         BasedeDatos = {}
         archivo = open(ruta, "r")
@@ -196,7 +197,7 @@ while Sesion == 0:
                 Respirar = Seleccion[0]
             elif Respirar.lower() == "n":
                 Respirar = Seleccion[1]
-
+            print("-"*100)
             print('''Datos del usuario:
             Nombre completo: {}
             Edad: {}
@@ -253,7 +254,7 @@ while Sesion == 0:
 
             Recuerde que este cuestionario no es la verdad absoluta'''.format(Status))
             estado = str(input("Colque el estado donde estara en cuarentena: "))
-            ciudad =str(input("Colque la ciudad donde estara en cuarentena:"))
+            ciudad =str(input("Colque la ciudad donde estara en cuarentena: "))
             direccion = str(input("Colque la direccion donde estara en cuarentena: "))
             doctor = str(input("Ingrese el nombre del doctor encargado: "))
             BasedeDatos[Nombre_completo] = Infectado(Nombres, Apellidos, Edad, Status, direccion, ciudad,  estado, doctor).orden()
@@ -269,6 +270,7 @@ while Sesion == 0:
     
 
     elif eleccion == 2:
+        print("="*150)
         #Modulo2
         diccinfectados = {}
         for x in dicc ['data']['covid19Stats']:
@@ -355,11 +357,13 @@ while Sesion == 0:
         4) Ver top de paises con mas sanados
         ''')
         if ingreso ==1:
+            print("="*150)
             pais = str(input("Ingrese el nombre del pais en ingles:  " ))
-            pais = pais.capitalize()
+            pais = pais.title()
             acceso = 0
             while acceso ==0:
                 if pais in diccinfectados:
+                    print("-"*100)
                     print('''{} tiene:
                     {} infectados
                     {} muertos
@@ -374,20 +378,23 @@ while Sesion == 0:
                         duda= str(input("¿Quieres volver a buscar? Si[s] No[n]  "))
                     if duda == "s":
                         pais = str(input("Ingrese el nombre del pais en ingles: "))
-                        pais = pais.capitalize()
+                        pais = pais.title()
 
                     elif duda == "n":
                         acceso = 1
 
         elif ingreso ==2:
+            print("="*150)
             print ("Top de paises con mas infectados: ")
             ImpresiondeTop(top_infectados,diccinfectados)
 
         elif ingreso ==3:
+            print("="*150)
             print ("Top de paises con mas muertos: ")
             ImpresiondeTop(top_Muetos,dicciMuertos)
 
         elif ingreso == 4:
+            print("="*150)
             print ("Top de paises con mas sanados: ")
             ImpresiondeTop(top_salvados,diccsalvados)
 
@@ -401,4 +408,5 @@ while Sesion == 0:
 
     elif eleccion ==3:
         Sesion =1
+print("="*150)
 print("Hasta luego")
